@@ -1,0 +1,210 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as mixins;
+
+@font-face {
+  font-family: 'Play';
+  src: local('Play'), url('../public/fonts/Play-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Play';
+  src: local('Play'), url('../public/fonts/Play-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+main {
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input:read-only {
+  cursor: unset;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a {
+  display: block;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  transition: $anim;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+svg {
+  pointer-events: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: $sm-max;
+  margin: 0 auto;
+  padding-left: $padding--sm;
+  padding-right: $padding--sm;
+
+  @include mixins.viewport--md {
+    width: 100%;
+    max-width: $md-max;
+    margin: 0 auto;
+    padding-left: $padding--md;
+    padding-right: $padding--md;
+  }
+
+  @include mixins.viewport--lg {
+    width: 100%;
+    max-width: $lg-max;
+    margin: 0 auto;
+    padding-left: $padding--lg;
+    padding-right: $padding--lg;
+  }
+
+  @include mixins.viewport--xl {
+    width: 100%;
+    max-width: $xl-max;
+    margin: 0 auto;
+    padding-left: $padding--xl;
+    padding-right: $padding--xl;
+  }
+}
+
+button:active,
+button:focus {
+  background-color: transparent !important;
+  outline: none !important;
+}

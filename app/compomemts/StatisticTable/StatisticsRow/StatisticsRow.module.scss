@@ -1,0 +1,126 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as mixins;
+
+.wrapper {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: $color-light-gray;
+  border: 1px solid #353534bf;
+  width: 100%;
+  overflow-x: auto; // Добавляем горизонтальный скролл при необходимости
+}
+
+.imageWrapper {
+  position: relative;
+  width: 276px;
+  height: 173px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  .nameCard {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    background: #191923a1;
+    width: 100%;
+  }
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  width: 100%;
+  min-width: max-content; // Важно для предотвращения сжатия
+  border-bottom: 1px solid #353534bf;
+  padding: 8px 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.tableCell {
+  flex: 1;
+  min-width: 120px;
+  max-width: 150px;
+  padding: 0 5px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 28px;
+
+  &:first-child {
+    text-align: left;
+    min-width: 150px;
+    max-width: 200px;
+    flex: 1.5;
+  }
+}
+
+.tableRow {
+  display: flex;
+  width: 100%;
+  min-width: max-content;
+  border-bottom: 1px solid #353534bf;
+  padding: 8px 0;
+  gap: 10px; // Добавляем отступ между блоками
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.statsBlock {
+  display: flex;
+  flex: 5; // Занимает 5/7 пространства (5 полей из 7)
+  border-radius: 6px;
+  padding: 0 5px;
+  gap: 10px;
+}
+
+.statsCell {
+  flex: 1;
+  min-width: 0;
+  padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 28px;
+  color: white; // Белый текст для лучшей читаемости
+  text-align: center;
+
+  &:first-child {
+    flex: 1.5;
+    text-align: left;
+  }
+}
+
+.tableCell {
+  flex: 1;
+  min-width: 100px;
+  padding: 0 5px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 28px;
+  background: #2a2a2a; // Стандартный фон для оставшихся ячеек
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

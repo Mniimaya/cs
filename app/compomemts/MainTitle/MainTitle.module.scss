@@ -1,0 +1,28 @@
+@use '../../../styles/variables.scss' as *;
+
+.titleContainer {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.mainTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 10px 0;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(82, 123, 251, 0.3);
+  text-align: end;
+  width: 100%;
+}
+
+.titleUnderline {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #527bfb, rgba(82, 123, 251, 0.2));
+  margin-top: 8px;
+  border-radius: 2px;
+}

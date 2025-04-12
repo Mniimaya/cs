@@ -1,0 +1,68 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as mixins;
+
+.navWrapper {
+  height: 100%;
+  position: relative;
+}
+.nav {
+  border-radius: 0 20px 20px 0;
+  padding: 15px 20px;
+  flex-shrink: 0;
+  position: relative;
+  transition: $anim;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    row-gap: 8px;
+    li {
+      width: 100%;
+    }
+
+    a {
+      padding: 8px 10px;
+      color: $color-white;
+      width: 100%;
+      transition: $anim;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      &:hover {
+        background: #5858716c;
+        border-radius: 5px;
+        transition: $anim;
+      }
+
+      &.active {
+        background: rgba(82, 123, 251, 0.5);
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .textLink {
+    max-width: 0;
+    overflow: hidden;
+    transition: $anim;
+  }
+}
+
+.openMenu {
+  background-color: rgba(25, 25, 35, 0.5);
+  transition: $anim;
+
+  .textLink {
+    max-width: 175px;
+    transition: $anim;
+    overflow: hidden;
+    padding-left: 10px;
+  }
+}
