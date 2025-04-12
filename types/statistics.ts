@@ -12,3 +12,12 @@ export interface StatisticsItem {
   avgGames: number;
   avgWinrate: string;
 }
+
+export interface MapPerformance {
+  map: string;
+  winRate: number;
+  matches: number;
+  kdRatio: number;
+  adr: number;
+  performance: 'best' | 'average' | 'worst'; // Фиксируем конкретные значения
+}

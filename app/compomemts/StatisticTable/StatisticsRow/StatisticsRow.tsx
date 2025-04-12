@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './StatisticsRow.module.scss';
-import { StatisticsItem } from '@/types/statistics';
+import { StatisticsItem, Users } from '@/types/statistics';
 import Image from 'next/image';
 
 export const StatisticsRow = ({ data }: { data: StatisticsItem }) => {
-  const getStatsColor = (user: any) => {
-    if (parseFloat(user.winrate) > 60 && user.kd > 1.3) return '#1a3a1a';
-    if (parseFloat(user.winrate) < 40 || user.kd < 0.9) return '#3a1a1a';
+  const getStatsColor = (user: Users) => {
+    if (parseFloat(user?.winrate) > 60 && user.kd > 1.3) return '#1a3a1a';
+    if (parseFloat(user?.winrate) < 40 || user.kd < 0.9) return '#3a1a1a';
     return '#3a3a1a';
   };
 

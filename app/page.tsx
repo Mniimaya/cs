@@ -1,8 +1,9 @@
+import { MapPerformance } from '@/types/statistics';
 import { MainTitle } from './compomemts/MainTitle/MainTitle';
 import StatisticTable from './compomemts/StatisticTable/StatisticTable';
 import TeamMapsPerformance from './compomemts/TeamMapsPerformance/TeamMapsPerformance';
 
-const mapsData1 = [
+const mapsData1: MapPerformance[] = [
   { map: 'Mirage', winRate: 72, matches: 24, kdRatio: 1.35, adr: 88.4, performance: 'best' },
   { map: 'Inferno', winRate: 68, matches: 18, kdRatio: 1.28, adr: 85.2, performance: 'best' },
   { map: 'Dust 2', winRate: 52, matches: 22, kdRatio: 1.05, adr: 79.1, performance: 'average' },

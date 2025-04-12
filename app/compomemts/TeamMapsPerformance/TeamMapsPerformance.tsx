@@ -1,15 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './TeamMapsPerformance.module.scss';
-
-interface MapPerformance {
-  map: string;
-  winRate: number;
-  matches: number;
-  kdRatio: number;
-  adr: number;
-  performance: 'best' | 'average' | 'worst';
-}
+import { MapPerformance } from '@/types/statistics';
 
 interface TeamMapsPerformanceProps {
   maps: MapPerformance[];

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import s from './StatisticTable.module.scss';
 import { StatisticsRow } from './StatisticsRow/StatisticsRow';
 import { StatisticsItem } from '@/types/statistics';
