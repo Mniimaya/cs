@@ -7,19 +7,20 @@ import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = React.useState(false);
+  // const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
+  // const handleMouseEnter = () => {
+  //   setIsOpen(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setIsOpen(false);
+  // };
 
+  // ${isOpen && s.openMenu}
   return (
     <div className={s.navWrapper}>
-      <nav className={`${s.nav} ${isOpen && s.openMenu}`}>
+      <nav className={`${s.nav}`}>
         <Link href="/">
           <svg width="160" height="66" viewBox="0 0 160 66" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_2038_164)">
@@ -54,7 +55,8 @@ export default function Navigation() {
             </defs>
           </svg>
         </Link>
-        <ul className={s.list} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ul className={s.list}>
+          {/* onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} */}
           <li>
             <Link href="/" className={pathname === '/' ? s.active : ''}>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

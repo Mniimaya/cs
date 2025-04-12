@@ -20,8 +20,9 @@
   .list {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     row-gap: 8px;
+    background-color: rgba(25, 25, 35, 0.5);
+    transition: $anim;
     li {
       width: 100%;
     }
@@ -52,17 +53,7 @@
     max-width: 0;
     overflow: hidden;
     transition: $anim;
-  }
-}
-
-.openMenu {
-  background-color: rgba(25, 25, 35, 0.5);
-  transition: $anim;
-
-  .textLink {
     max-width: 175px;
-    transition: $anim;
-    overflow: hidden;
     padding-left: 10px;
   }
 }

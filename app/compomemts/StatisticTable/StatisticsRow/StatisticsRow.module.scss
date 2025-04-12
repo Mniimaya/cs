@@ -4,12 +4,11 @@
 .wrapper {
   display: flex;
   gap: 15px;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   background-color: $color-light-gray;
   border: 1px solid #353534bf;
   width: 100%;
-  overflow-x: auto; // Добавляем горизонтальный скролл при необходимости
 }
 
 .imageWrapper {
@@ -24,103 +23,79 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    padding: 5px 10px;
-    background: #191923a1;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.7);
     width: 100%;
+    color: white;
+    font-weight: 600;
   }
 }
 
 .tableContainer {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  width: 100%;
+  flex-grow: 1;
 }
 
-.tableRow {
-  display: flex;
-  width: 100%;
-  min-width: max-content; // Важно для предотвращения сжатия
-  border-bottom: 1px solid #353534bf;
-  padding: 8px 0;
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-.tableCell {
+.flex {
   flex: 1;
-  min-width: 120px;
-  max-width: 150px;
-  padding: 0 5px;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  line-height: 28px;
-
-  &:first-child {
-    text-align: left;
-    min-width: 150px;
-    max-width: 200px;
-    flex: 1.5;
-  }
+  display: flex;
+  gap: 10px;
 }
 
 .tableRow {
   display: flex;
-  width: 100%;
-  min-width: max-content;
-  border-bottom: 1px solid #353534bf;
-  padding: 8px 0;
-  gap: 10px; // Добавляем отступ между блоками
+  flex: 1;
+  min-height: 40px;
+  gap: 10px;
+  margin-bottom: 8px;
 
   &:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
   }
 }
 
 .statsBlock {
   display: flex;
-  flex: 5; // Занимает 5/7 пространства (5 полей из 7)
-  border-radius: 6px;
-  padding: 0 5px;
+  flex: 5;
   gap: 10px;
+  border-radius: 6px;
+  padding: 8px 10px;
+  align-items: center;
 }
 
 .statsCell {
   flex: 1;
   min-width: 0;
-  padding: 0 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 14px;
-  line-height: 28px;
-  color: white; // Белый текст для лучшей читаемости
   text-align: center;
 
   &:first-child {
-    flex: 1.5;
     text-align: left;
+    flex: 1.5;
   }
 }
 
-.tableCell {
-  flex: 1;
-  min-width: 100px;
-  padding: 0 5px;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  line-height: 28px;
-  background: #2a2a2a; // Стандартный фон для оставшихся ячеек
-  border-radius: 6px;
+.avgCell {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 80px;
+  background: #2a2a2a;
+  border-radius: 6px;
+  font-size: 14px;
+  flex-basis: 140px;
+
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 120px;
+  max-width: 150px;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
 }

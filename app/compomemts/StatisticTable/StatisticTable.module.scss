@@ -13,6 +13,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+
+  & > div:first-of-type {
+    border-radius: 0 0 10px 10px;
+  }
 }
 
 .mainWrapper {
@@ -24,9 +28,12 @@
   display: flex;
   gap: 15px;
   padding: 10px 20px;
-  background: #2a2a2a;
+  background: #1e1e1e;
   border-radius: 10px 10px 0 0;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .headerGroup {

@@ -4,11 +4,11 @@ export interface Users {
   winrate: string;
   adr: number;
   kd: number;
-  avgGames: number;
-  avgWinrate: string;
 }
 
 export interface StatisticsItem {
   map: string;
   users: Users[];
+  avgGames: number;
+  avgWinrate: string;
 }
