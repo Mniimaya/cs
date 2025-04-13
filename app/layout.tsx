@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={s.body}>
         <Navigation />
-        <main className={`${s.main} container`}>{children}</main>
+        <main className={`${s.main}`}>{children}</main>
       </body>
     </html>
   );
