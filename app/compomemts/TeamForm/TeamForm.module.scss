@@ -1,0 +1,36 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as mixins;
+
+.teamFormContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.title {
+  font-size: 20px;
+  color: $color-white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  padding: 12px 15px;
+  background: #1e1e1e;
+  border: 1px solid #353534;
+  border-radius: 5px;
+  color: $color-white;
+  transition: $anim;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}

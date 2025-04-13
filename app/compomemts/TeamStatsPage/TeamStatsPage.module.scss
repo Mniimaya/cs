@@ -1,0 +1,69 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as mixins;
+
+.pageContainer {
+  padding: 20px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1440px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  color: $color-white;
+  font-weight: 700;
+}
+
+.error {
+  color: #ff4444;
+  padding: 10px;
+  margin: 20px 0;
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.statsContainer {
+  margin-top: 40px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.playerCard {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.playerTitle {
+  font-size: 18px;
+  color: $color-white;
+  font-weight: 700;
+}
+
+.titleWrapper {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #353534;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+}
+
+.statsPlaceholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.btnWrapper {
+  display: flex;
+  column-gap: 20px;
+}
