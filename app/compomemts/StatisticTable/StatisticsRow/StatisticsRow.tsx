@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './StatisticsRow.module.scss';
 import { StatisticsItem, Users } from '@/types/statistics';
-import Image from 'next/image';
+import MapCard from '../../MapCard/MapCard';
 
 export const StatisticsRow = ({ data }: { data: StatisticsItem }) => {
   const getStatsColor = (user: Users) => {
@@ -12,10 +12,7 @@ export const StatisticsRow = ({ data }: { data: StatisticsItem }) => {
 
   return (
     <div className={s.wrapper}>
-      <div className={s.imageWrapper}>
-        <Image src="/images/1.jpeg" alt="" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px)" />
-        <span className={s.nameCard}>{data.map}</span>
-      </div>
+      <MapCard map={{ map: data.map, winRate: data.winRate, matches: data.matches, kdRatio: data.kdRatio, adr: data.adr, performance: data.performance }} />
       <div className={s.flex}>
         <div className={s.tableContainer}>
           {data.users.map((item, index) => (
@@ -30,8 +27,6 @@ export const StatisticsRow = ({ data }: { data: StatisticsItem }) => {
             </div>
           ))}
         </div>
-        <div className={s.avgCell}>{data.avgGames}</div>
-        <div className={s.avgCell}>{data.avgWinrate}</div>
       </div>
     </div>
   );

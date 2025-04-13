@@ -6,18 +6,15 @@ export interface Users {
   kd: number;
 }
 
-export interface StatisticsItem {
-  map: string;
-  users: Users[];
-  avgGames: number;
-  avgWinrate: string;
-}
-
 export interface MapPerformance {
   map: string;
   winRate: number;
   matches: number;
   kdRatio: number;
   adr: number;
-  performance: 'best' | 'average' | 'worst'; // Фиксируем конкретные значения
+  performance: 'best' | 'average' | 'worst';
+}
+
+export interface StatisticsItem extends MapPerformance {
+  users: Users[];
 }

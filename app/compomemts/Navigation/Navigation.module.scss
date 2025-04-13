@@ -1,13 +1,9 @@
 @use '../../../styles/variables.scss' as *;
 @use '../../../styles/mixins.scss' as mixins;
 
-.navWrapper {
-  height: 100%;
-  position: relative;
-}
 .nav {
   border-radius: 0 20px 20px 0;
-  padding: 15px 20px;
+  padding: 25px 15px 20px;
   flex-shrink: 0;
   position: relative;
   transition: $anim;
@@ -16,13 +12,16 @@
   left: 0;
   bottom: 0;
   z-index: 2;
+  width: 300px;
+  background-color: rgba(25, 25, 35, 0.5);
 
   .list {
     display: flex;
     flex-direction: column;
     row-gap: 8px;
-    background-color: rgba(25, 25, 35, 0.5);
+
     transition: $anim;
+    height: 100%;
     li {
       width: 100%;
     }
@@ -55,5 +54,23 @@
     transition: $anim;
     max-width: 175px;
     padding-left: 10px;
+  }
+}
+
+.logoLink {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  transition: $anim;
+
+  &:hover {
+    opacity: 0.5;
+    transition: $anim;
+  }
+  svg {
+    width: 260px;
+    height: 42px;
   }
 }

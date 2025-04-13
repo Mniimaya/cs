@@ -1,13 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './StatisticTable.module.scss';
 import { StatisticsRow } from './StatisticsRow/StatisticsRow';
 import { StatisticsItem } from '@/types/statistics';
+import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
 
 const data: StatisticsItem[] = [
   {
     map: 'Dust 2',
+    winRate: 72,
+    matches: 24,
+    kdRatio: 1.35,
+    adr: 88.4,
+    performance: 'best',
     users: [
       { nickname: 's1mple', games: 245, winrate: '68%', adr: 92.5, kd: 1.45 },
       { nickname: 'ZywOo', games: 198, winrate: '72%', adr: 89.3, kd: 1.52 },
@@ -17,8 +23,6 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
   },
   {
     map: 'Dust 2',
@@ -31,8 +35,11 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
+    winRate: 68,
+    matches: 18,
+    kdRatio: 1.28,
+    adr: 85.2,
+    performance: 'best',
   },
   {
     map: 'Dust 2',
@@ -45,8 +52,11 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
+    winRate: 52,
+    matches: 22,
+    kdRatio: 1.05,
+    adr: 79.1,
+    performance: 'average',
   },
   {
     map: 'Dust 2',
@@ -59,8 +69,11 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
+    winRate: 48,
+    matches: 15,
+    kdRatio: 0.98,
+    adr: 76.3,
+    performance: 'average',
   },
   {
     map: 'Dust 2',
@@ -73,8 +86,11 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
+    winRate: 42,
+    matches: 12,
+    kdRatio: 0.92,
+    adr: 72.1,
+    performance: 'average',
   },
   {
     map: 'Dust 2',
@@ -87,37 +103,54 @@ const data: StatisticsItem[] = [
       { nickname: 'ropz', games: 203, winrate: '71%', adr: 81.6, kd: 1.33 },
       { nickname: 'sh1ro', games: 157, winrate: '69%', adr: 76.8, kd: 1.47 },
     ],
-    avgGames: 7,
-    avgWinrate: '65%',
+    winRate: 32,
+    matches: 12,
+    kdRatio: 0.85,
+    adr: 68.7,
+    performance: 'worst',
   },
 ];
 
 export default function StatisticTable() {
-  return (
-    <div className={s.container}>
-      <div className={s.header}>
-        <h2 className={s.title}>Подробная статистика</h2>
-      </div>
-      <div className={s.tableHeader}>
-        <div className={`${s.headerCell} ${s.cardName}`}>Карта</div>
-        <div className={s.headerGroup}>
-          <div className={`{${s.headerCell} ${s.cardNick}`} style={{ textAlign: 'start' }}>
-            Никнейм
-          </div>
-          <div className={s.headerCell}>Кол-во игр</div>
-          <div className={s.headerCell}>Винрейт</div>
-          <div className={s.headerCell}>ADR</div>
-          <div className={s.headerCell}>K/D</div>
-        </div>
-        <div className={s.headerCell}>Среднее кол-во игр</div>
-        <div className={s.headerCell}>Средний винрейт</div>
-      </div>
+  const [isLoading, setIsLoading] = useState(true);
 
-      <div className={s.list}>
-        {data.map((row, index) => (
-          <StatisticsRow data={row} key={index} />
-        ))}
-      </div>
-    </div>
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      <LoadingOverlay isLoading={isLoading} />
+
+      {!isLoading && (
+        <div className={s.container}>
+          <div className={s.header}>
+            <h2 className={s.title}>Подробная статистика</h2>
+          </div>
+          <div className={s.tableHeader}>
+            <div className={`${s.headerCell} ${s.cardName}`}>Карта</div>
+            <div className={s.headerGroup}>
+              <div className={`{${s.headerCell} ${s.cardNick}`} style={{ textAlign: 'start' }}>
+                Никнейм
+              </div>
+              <div className={s.headerCell}>Кол-во игр</div>
+              <div className={s.headerCell}>Винрейт</div>
+              <div className={s.headerCell}>ADR</div>
+              <div className={s.headerCell}>K/D</div>
+            </div>
+          </div>
+
+          <div className={s.list}>
+            {data.map((row, index) => (
+              <StatisticsRow data={row} key={index} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

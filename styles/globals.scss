@@ -79,12 +79,10 @@ aside {
 html,
 body {
   scroll-behavior: smooth;
-  height: 100%;
   width: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  min-height: 100%;
 }
 
 input,
@@ -174,14 +172,14 @@ p {
 .container {
   width: 100%;
   max-width: $sm-max;
-  margin: 0 auto;
+  // margin: 0 auto;
   padding-left: $padding--sm;
   padding-right: $padding--sm;
 
   @include mixins.viewport--md {
     width: 100%;
     max-width: $md-max;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding-left: $padding--md;
     padding-right: $padding--md;
   }
@@ -189,7 +187,7 @@ p {
   @include mixins.viewport--lg {
     width: 100%;
     max-width: $lg-max;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding-left: $padding--lg;
     padding-right: $padding--lg;
   }
@@ -197,7 +195,7 @@ p {
   @include mixins.viewport--xl {
     width: 100%;
     max-width: $xl-max;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding-left: $padding--xl;
     padding-right: $padding--xl;
   }

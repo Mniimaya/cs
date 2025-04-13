@@ -7,6 +7,7 @@
   flex-direction: column;
   row-gap: 20px;
   width: fit-content;
+  margin-bottom: 30px;
 }
 
 .list {
@@ -44,8 +45,8 @@
 
 .headerCell {
   flex: 1;
-  min-width: 120px;
-  max-width: 150px;
+  // min-width: 120px;
+  // max-width: 150px;
   text-align: center;
   font-weight: bold;
   font-size: 14px;
@@ -56,15 +57,15 @@
 
 .cardName {
   text-align: left;
-  min-width: 275px;
-  max-width: 275px;
+  min-width: 300px;
+  max-width: 300px;
   flex: 1.5;
 }
 
 .cardNick {
   text-align: left;
-  min-width: 194px;
-  max-width: 194px;
+  // min-width: 194px;
+  // max-width: 194px;
   flex: 1.5;
 }
 
