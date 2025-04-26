@@ -5,6 +5,7 @@
   transition: transform 0.2s ease;
   position: relative;
   flex-basis: 300px;
+  flex-shrink: 0;
 }
 
 .mapImage {

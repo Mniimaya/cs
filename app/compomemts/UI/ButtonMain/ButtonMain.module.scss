@@ -3,7 +3,7 @@
 @use '../../../../styles/mixins.scss' as mixins;
 
 %base-button {
-  padding: 12px 24px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -16,6 +16,9 @@
   outline: none;
   transition: all 0.2s ease;
 
+  @include mixins.viewport--md {
+    padding: 12px 24px;
+  }
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;

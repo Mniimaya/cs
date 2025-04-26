@@ -16,6 +16,9 @@
   font-weight: 700;
   display: flex;
   column-gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
 
   @include mixins.viewport--md {
     font-size: 24px;
@@ -63,6 +66,8 @@
   border-bottom: 1px solid #353534;
   margin-bottom: 30px;
   padding-bottom: 15px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .statsPlaceholder {
@@ -72,14 +77,16 @@
 
 .btnWrapper {
   display: flex;
-  column-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .teamName {
   position: relative;
   color: $cs-orange;
   font-family: $font-main;
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -87,4 +94,8 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: block;
   margin-bottom: -3px;
+
+  @include mixins.viewport--md {
+    font-size: 30px;
+  }
 }
