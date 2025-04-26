@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './PlayerSelection.module.scss';
 import ButtonMain from '../UI/ButtonMain/ButtonMain';
 import { Players } from '@/types/statistics';
@@ -12,7 +12,7 @@ interface PlayerSelectionProps {
 
 export const PlayerSelection: React.FC<PlayerSelectionProps> = ({ players, onSelectionSubmit }) => {
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
-  const [isSelectedAll, setIsSelectedAll] = React.useState(false);
+  const [isSelectedAll, setIsSelectedAll] = useState(false);
 
   const handleCheckboxChange = (player: string) => {
     setSelectedPlayers((prev) => (prev.includes(player) ? prev.filter((p) => p !== player) : [...prev, player]));
@@ -24,25 +24,17 @@ export const PlayerSelection: React.FC<PlayerSelectionProps> = ({ players, onSel
   };
 
   const handlerChooseAll = () => {
-    if (!isSelectedAll) {
-      setSelectedPlayers(
-        players.playersList.map((item) => {
-          return `${item.nickname}|${item.id}`;
-        })
-      );
-      setIsSelectedAll(false);
-    } else {
+    if (isSelectedAll) {
       setSelectedPlayers([]);
+    } else {
+      setSelectedPlayers(players.playersList.map((item) => `${item.nickname}|${item.id}`));
     }
+    setIsSelectedAll(!isSelectedAll);
   };
 
-  React.useEffect(() => {
-    if (selectedPlayers.length === players.playersList.length) {
-      setIsSelectedAll(true);
-    } else {
-      setIsSelectedAll(false);
-    }
-  }, [selectedPlayers]);
+  useEffect(() => {
+    setIsSelectedAll(selectedPlayers.length === players.playersList.length);
+  }, [selectedPlayers, players.playersList.length]);
 
   return (
     <div className={s.selectionContainer}>
@@ -50,7 +42,7 @@ export const PlayerSelection: React.FC<PlayerSelectionProps> = ({ players, onSel
         <h2 className={s.title}>
           Выберите игроков для анализа
           <ButtonMain type="button" onClick={handlerChooseAll}>
-            {isSelectedAll ? 'Сбросить' : ' Выбрать всех'}
+            {isSelectedAll ? 'Сбросить' : 'Выбрать всех'}
           </ButtonMain>
         </h2>
         <div className={s.playersList}>

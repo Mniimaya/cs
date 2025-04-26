@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './MapCard.module.scss';
-import Image from 'next/image';
 import { MapPerformance } from '@/types/statistics';
 
 const getPerformanceColor = (performance: number) => {
