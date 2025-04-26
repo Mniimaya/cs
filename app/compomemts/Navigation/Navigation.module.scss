@@ -7,13 +7,16 @@
   flex-shrink: 0;
   position: relative;
   transition: $anim;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  width: 300px;
   background-color: rgba(25, 25, 35, 0.5);
+
+  @include mixins.viewport--md {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 300px;
+  }
 
   .list {
     display: flex;

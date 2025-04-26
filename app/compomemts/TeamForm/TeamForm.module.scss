@@ -4,7 +4,10 @@
 .teamFormContainer {
   max-width: 600px;
   margin: 0 auto;
-  padding: 30px;
+
+  @include mixins.viewport--md {
+    padding: 30px;
+  }
 }
 
 .title {

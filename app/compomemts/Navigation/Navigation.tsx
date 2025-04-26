@@ -68,14 +68,6 @@ export default function Navigation() {
             <span className={s.textLink}>Maps</span>
           </Link>
         </li>
-        <li>
-          <Link href="test" className={pathname === 'test' ? s.active : ''}>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.4999 6.66667H15.8332M7.4999 10H15.8332M7.4999 13.3333H15.8332M4.15824 6.66667H4.16657M4.1499 10H4.15824M4.15824 13.3333H4.16657" stroke="#527BFB" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <span className={s.textLink}>Users</span>
-          </Link>
-        </li>
       </ul>
     </nav>
   );
