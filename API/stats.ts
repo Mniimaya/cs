@@ -1,11 +1,16 @@
+import { Players } from '@/types/statistics';
 import axios from 'axios';
 
-export const fetchGetNicknames = async (url: string) => {
+const apiClient = axios.create({
+  baseURL: 'https://192.168.3.20:5001',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+export const fetchGetNicknames = async (url: string): Promise<Players> => {
   try {
-    const response = await axios.get('/api/team-players', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    const response = await apiClient.get('/api/Team', {
       params: {
         url,
       },
@@ -25,14 +30,11 @@ export const fetchGetNicknames = async (url: string) => {
   }
 };
 
-export const fetchGetStats = async (users: string[]) => {
+export const fetchGetStats = async (player: string[]) => {
   try {
-    const response = await axios.get('/api/team-players', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    const response = await apiClient.get('/api/Maps', {
       params: {
-        users,
+        player,
       },
       paramsSerializer: {
         indexes: null,

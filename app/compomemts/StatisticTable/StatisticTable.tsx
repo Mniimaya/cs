@@ -3,16 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import s from './StatisticTable.module.scss';
 import { StatisticsRow } from './StatisticsRow/StatisticsRow';
-import { StatisticsItem } from '@/types/statistics';
+import { MapPerformance } from '@/types/statistics';
 import { LoadingOverlay } from '../LoadingOverlay/LoadingOverlay';
 
-export default function StatisticTable({ data }: { data: StatisticsItem[] }) {
+export default function StatisticTable({ data }: { data: MapPerformance[] }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);

@@ -13,6 +13,8 @@
   font-size: 24px;
   color: $color-white;
   font-weight: 700;
+  display: flex;
+  column-gap: 8px;
 }
 
 .error {
@@ -52,7 +54,7 @@
   margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   border-bottom: 1px solid #353534;
   margin-bottom: 30px;
   padding-bottom: 15px;
@@ -66,4 +68,18 @@
 .btnWrapper {
   display: flex;
   column-gap: 20px;
+}
+
+.teamName {
+  position: relative;
+  color: $cs-orange;
+  font-family: $font-main;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin-bottom: -3px;
 }

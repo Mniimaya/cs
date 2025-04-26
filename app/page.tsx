@@ -4,7 +4,7 @@ import { TeamStatsPage } from './compomemts/TeamStatsPage/TeamStatsPage';
 export default function Home() {
   return (
     <div>
-      <MainTitle>Командная статистика</MainTitle>
+      <MainTitle>Статистика по картам</MainTitle>
       <TeamStatsPage />
     </div>
   );

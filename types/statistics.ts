@@ -1,20 +1,29 @@
 export interface Users {
   nickname: string;
-  games: number;
+  gamesCount: string;
   winrate: string;
-  adr: number;
-  kd: number;
+  adr: string;
+  killsToDeaths: string;
+  playerResult: number;
 }
 
 export interface MapPerformance {
-  map: string;
-  winRate: number;
-  matches: number;
-  kdRatio: number;
-  adr: number;
-  performance: 'best' | 'average' | 'worst';
+  imageUrl: string;
+  name: string;
+  analysisResult: number;
+  averageGamesCount: string;
+  averageWinrate: string;
+  averageKillsToDeaths: string;
+  averageADR: string;
+  players: Users[];
 }
 
-export interface StatisticsItem extends MapPerformance {
-  users: Users[];
+type Player = {
+  nickname: string;
+  id: string;
+};
+
+export interface Players {
+  name: string;
+  playersList: Player[];
 }

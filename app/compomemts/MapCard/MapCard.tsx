@@ -3,26 +3,30 @@ import s from './MapCard.module.scss';
 import Image from 'next/image';
 import { MapPerformance } from '@/types/statistics';
 
-const getPerformanceColor = (performance: string) => {
+const getPerformanceColor = (performance: number) => {
   switch (performance) {
-    case 'best':
+    case 0:
+      return '#8F949F'; // Серый
+    case 1:
       return '#4CAF50'; // Ярко-зеленый
-    case 'average':
+    case 2:
       return '#FFC107'; // Желтый
-    case 'worst':
+    case 3:
       return '#F44336'; // Красный
     default:
       return '#9E9E9E';
   }
 };
 
-const getPerformanceLabel = (performance: string) => {
+const getPerformanceLabel = (performance: number) => {
   switch (performance) {
-    case 'best':
-      return 'Сильная карта';
-    case 'average':
+    case 0:
+      return 'Мало результатов';
+    case 1:
+      return 'Сильная карта ';
+    case 2:
       return 'Средний результат';
-    case 'worst':
+    case 3:
       return 'Слабая карта';
     default:
       return '';
@@ -31,33 +35,33 @@ const getPerformanceLabel = (performance: string) => {
 
 export default function MapCard({ map }: { map: MapPerformance }) {
   return (
-    <div className={s.mapCard} style={{ borderLeft: `4px solid ${getPerformanceColor(map.performance)}` }}>
+    <div className={s.mapCard} style={{ borderLeft: `4px solid ${getPerformanceColor(map.analysisResult)}` }}>
       <div className={s.mapImage}>
-        <Image src="/images/1.jpeg" alt={map.map} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px)" />
-        <div className={s.mapName}>{map.map}</div>
+        <img src={map.imageUrl} alt={map.name} style={{ objectFit: 'cover' }} />
+        <div className={s.mapName}>{map.name}</div>
       </div>
 
-      <div className={s.performanceTag} style={{ backgroundColor: getPerformanceColor(map.performance) }}>
-        {getPerformanceLabel(map.performance)}
+      <div className={s.performanceTag} style={{ backgroundColor: getPerformanceColor(map.analysisResult) }}>
+        {getPerformanceLabel(map.analysisResult)}
       </div>
 
       <div className={s.mapStats}>
         <div className={s.statRow}>
-          <span className={s.statValue}>{map.winRate}%</span>
+          <span className={s.statValue}>{map.averageWinrate}%</span>
           <span className={s.statLabel}>Win Rate</span>
         </div>
 
         <div className={s.statGrid}>
           <div className={s.statItem}>
-            <span className={s.statValue}>{map.kdRatio.toFixed(2)}</span>
+            <span className={s.statValue}>{map.averageKillsToDeaths}</span>
             <span className={s.statLabel}>K/D</span>
           </div>
           <div className={s.statItem}>
-            <span className={s.statValue}>{map.adr}</span>
+            <span className={s.statValue}>{map.averageADR}</span>
             <span className={s.statLabel}>ADR</span>
           </div>
           <div className={s.statItem}>
-            <span className={s.statValue}>{map.matches}</span>
+            <span className={s.statValue}>{map.averageGamesCount}</span>
             <span className={s.statLabel}>Matches</span>
           </div>
         </div>

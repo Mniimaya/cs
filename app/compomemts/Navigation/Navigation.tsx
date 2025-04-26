@@ -65,7 +65,7 @@ export default function Navigation() {
                 </clipPath>
               </defs>
             </svg>
-            <span className={s.textLink}>Team</span>
+            <span className={s.textLink}>Maps</span>
           </Link>
         </li>
         <li>
