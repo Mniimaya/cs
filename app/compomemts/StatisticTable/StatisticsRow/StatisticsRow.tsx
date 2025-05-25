@@ -29,7 +29,7 @@ export const StatisticsRow = ({ data }: { data: MapPerformance }) => {
               <div className={s.statsBlock} style={{ backgroundColor: getPerformanceColor(item.playerResult) }}>
                 <div className={s.statsCell}>{item.nickname}</div>
                 <div className={s.statsCell}>{item.gamesCount ? item.gamesCount : '-'}</div>
-                <div className={s.statsCell}>{item.winrate ? item.winrate : '-'}</div>
+                <div className={s.statsCell}>{item.winrate ? `${item.winrate}%` : '-'}</div>
                 <div className={s.statsCell}>{item.adr ? item.adr : '-'}</div>
                 <div className={s.statsCell}>{item.killsToDeaths ? item.killsToDeaths : '-'}</div>
               </div>
