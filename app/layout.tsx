@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "../styles/globals.scss";
 import s from "./layout.module.scss";
 import Navigation from "../components/Navigation/Navigation";
