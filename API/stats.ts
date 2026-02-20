@@ -63,9 +63,7 @@ export const fetchGetStatsTeam = async (player: string[]) => {
 
 export const fetchGetStatsUser = async (
   url: string,
-): Promise<{
-  maps: MapPerformance[];
-}> => {
+): Promise<MapPerformance[]> => {
   try {
     const response = await apiClient.get("/player/stats", {
       params: {

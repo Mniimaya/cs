@@ -17,7 +17,7 @@ export const UserStats = () => {
   const fetchGetUserStats = async (url: string) => {
     fetchGetStatsUser(url)
       .then((data) => {
-        setStatsData(data.maps);
+        setStatsData(data);
         setLoading(true);
         setError("");
       })
