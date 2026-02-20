@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import s from "./MapCard.module.scss";
 import { MapPerformance } from "@/types/statistics";

@@ -3,9 +3,13 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
-    additionalData: `@use "variables.scss" as *; @use "mixins.scss" as mixins;`,
+    loadPaths: [path.join(process.cwd(), "styles")], // или includePaths, см. ниже
+    additionalData: `
+@use "variables" as *;
+@use "mixins" as mixins;
+`,
   },
+
   // Прокси для API запросов в продакшене
   async rewrites() {
     return [
