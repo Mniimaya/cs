@@ -1,17 +1,18 @@
-@use './variables.scss' as *;
-@use './mixins.scss' as mixins;
-
 @font-face {
-  font-family: 'Play';
-  src: local('Play'), url('../public/fonts/Play-Regular.woff2') format('woff2');
+  font-family: "Play";
+  src:
+    local("Play"),
+    url("../public/fonts/Play-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
 }
 
 @font-face {
-  font-family: 'Play';
-  src: local('Play'), url('../public/fonts/Play-Bold.woff2') format('woff2');
+  font-family: "Play";
+  src:
+    local("Play"),
+    url("../public/fonts/Play-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
@@ -100,7 +101,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 

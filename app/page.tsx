@@ -1,11 +1,7 @@
-import { MainTitle } from './compomemts/MainTitle/MainTitle';
-import { TeamStatsPage } from './compomemts/TeamStatsPage/TeamStatsPage';
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-      <MainTitle>Статистика по картам</MainTitle>
-      <TeamStatsPage />
-    </div>
-  );
+function Home() {
+  redirect("/team");
 }
+
+export default Home;

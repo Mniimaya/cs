@@ -1,16 +1,18 @@
-import { Players } from '@/types/statistics';
-import axios from 'axios';
+import { Players, MapPerformance } from "@/types/statistics";
+import axios from "axios";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "/api";
 
 const apiClient = axios.create({
-  baseURL: 'https://192.168.3.20:5001',
+  baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
 export const fetchGetNicknames = async (url: string): Promise<Players> => {
   try {
-    const response = await apiClient.get('/api/Team', {
+    const response = await apiClient.get("/team", {
       params: {
         url,
       },
@@ -18,21 +20,23 @@ export const fetchGetNicknames = async (url: string): Promise<Players> => {
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.error('Ошибка запроса:', {
+      console.error("Ошибка запроса:", {
         status: error.response?.status,
         message: error.response?.data?.message || error.message,
       });
-      throw new Error(error.response?.data?.message || 'Ошибка загрузки данных');
+      throw new Error(
+        error.response?.data?.message || "Ошибка загрузки данных",
+      );
     } else {
-      console.error('Неизвестная ошибка:', error);
-      throw new Error('Произошла непредвиденная ошибка');
+      console.error("Неизвестная ошибка:", error);
+      throw new Error("Произошла непредвиденная ошибка");
     }
   }
 };
 
-export const fetchGetStats = async (player: string[]) => {
+export const fetchGetStatsTeam = async (player: string[]) => {
   try {
-    const response = await apiClient.get('/api/Maps', {
+    const response = await apiClient.get("/maps", {
       params: {
         player,
       },
@@ -43,14 +47,44 @@ export const fetchGetStats = async (player: string[]) => {
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.error('Ошибка запроса:', {
+      console.error("Ошибка запроса:", {
         status: error.response?.status,
         message: error.response?.data?.message || error.message,
       });
-      throw new Error(error.response?.data?.message || 'Ошибка загрузки данных');
+      throw new Error(
+        error.response?.data?.message || "Ошибка загрузки данных",
+      );
     } else {
-      console.error('Неизвестная ошибка:', error);
-      throw new Error('Произошла непредвиденная ошибка');
+      console.error("Неизвестная ошибка:", error);
+      throw new Error("Произошла непредвиденная ошибка");
+    }
+  }
+};
+
+export const fetchGetStatsUser = async (
+  url: string,
+): Promise<{
+  maps: MapPerformance[];
+}> => {
+  try {
+    const response = await apiClient.get("/player/stats", {
+      params: {
+        url,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("Ошибка запроса:", {
+        status: error.response?.status,
+        message: error.response?.data?.message || error.message,
+      });
+      throw new Error(
+        error.response?.data?.message || "Ошибка загрузки данных",
+      );
+    } else {
+      console.error("Неизвестная ошибка:", error);
+      throw new Error("Произошла непредвиденная ошибка");
     }
   }
 };

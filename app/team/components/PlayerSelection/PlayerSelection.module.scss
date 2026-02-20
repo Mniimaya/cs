@@ -1,0 +1,70 @@
+
+.selectionContainer {
+  max-width: 800px;
+  background: #2a2a2a;
+}
+
+.playersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.playerItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: #1e1e1e;
+  cursor: pointer;
+  transition: $anim;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &:has(input:checked) {
+    background: #5858716c;
+  }
+
+  &::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: $color-primary;
+    border-radius: 2px;
+    opacity: 0;
+    transition: $anim;
+  }
+
+  &:has(input:checked)::after {
+    opacity: 1;
+  }
+
+  &:hover {
+    background: #5858716c;
+  }
+}
+
+.playerName {
+  font-size: 16px;
+  color: $color-white;
+  user-select: none;
+  flex-grow: 1;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 20px;
+  line-height: 1;
+}
